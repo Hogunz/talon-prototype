@@ -3,7 +3,7 @@ import { ClassroomBackground } from './ClassroomBackground';
 
 interface Question {
     id: number;
-    category: 'GENERAL EDUCATION' | 'PROFESSIONAL EDUCATION' | 'SPECIALIZATION';
+    category: 'WEB TECHNOLOGIES' | 'DATABASE MANAGEMENT' | 'OBJECT-ORIENTED PROGRAMMING';
     topicId: string;
     questionParts: { text: string; highlight?: boolean }[];
     options: { key: string; text: string }[];
@@ -18,80 +18,78 @@ interface Question {
 const FORMATIVE_QUESTIONS: Question[] = [
     {
         id: 1,
-        category: 'GENERAL EDUCATION',
-        topicId: 'inquiry-science',
+        category: 'WEB TECHNOLOGIES',
+        topicId: 'web-development',
         questionParts: [
-            { text: 'In School of Teacher Education science subjects, ' },
-            { text: 'inquiry-based', highlight: true },
-            { text: ' learning is integrated. Which teaching strategy prioritizes ' },
-            { text: 'student-led', highlight: true },
-            { text: ' question formulation and ' },
-            { text: 'hypothesis testing', highlight: true },
-            { text: ' above direct lecture formats?' },
+            { text: 'In modern web development, which language is primarily responsible for adding ' },
+            { text: 'interactive behavior', highlight: true },
+            { text: ', handling ' },
+            { text: 'button click events', highlight: true },
+            { text: ', and manipulating the ' },
+            { text: 'DOM', highlight: true },
+            { text: ' in the browser?' },
         ],
         options: [
-            { key: 'A', text: 'Punishment' },
-            { key: 'B', text: 'Punishment' },
-            { key: 'C', text: 'Punishment' },
-            { key: 'D', text: 'Punishment' },
+            { key: 'A', text: 'JavaScript' },
+            { key: 'B', text: 'HTML' },
+            { key: 'C', text: 'CSS' },
+            { key: 'D', text: 'SQL' },
         ],
         correctKey: 'A',
         rationalization: {
-            whyCorrect: 'Inquiry-based learning empowers learners to formulate their own investigative questions and perform hypothesis tests.',
-            whyOthersIncorrect: 'Expository lectures transmit facts directly without hypothesis experimentation; behavioral punishment is not an instructional strategy.',
-            reference: 'DepEd Science Curriculum Guide & CHED CMO No. 75',
+            whyCorrect: 'JavaScript provides client-side logic, handles user events (clicks, inputs), and dynamically updates the DOM without reloading the page.',
+            whyOthersIncorrect: 'HTML only defines structure/content; CSS only controls visual styles; SQL is a database query language, not a browser language.',
+            reference: 'MDN Web Docs - JavaScript Fundamentals',
         },
     },
     {
         id: 2,
-        category: 'PROFESSIONAL EDUCATION',
-        topicId: 'blooms-taxonomy',
+        category: 'DATABASE MANAGEMENT',
+        topicId: 'database-sql',
         questionParts: [
-            { text: 'In School of Teacher Education science subjects, ' },
-            { text: 'inquiry-based', highlight: true },
-            { text: ' learning is integrated. Which teaching strategy prioritizes ' },
-            { text: 'student-led', highlight: true },
-            { text: ' question formulation and ' },
-            { text: 'hypothesis testing', highlight: true },
-            { text: ' above direct lecture formats?' },
+            { text: 'When querying a relational database, which SQL clause is specifically used to filter ' },
+            { text: 'aggregated groups', highlight: true },
+            { text: ' after a ' },
+            { text: 'GROUP BY', highlight: true },
+            { text: ' statement is executed?' },
         ],
         options: [
-            { key: 'A', text: 'Punishment' },
-            { key: 'B', text: 'Punishment' },
-            { key: 'C', text: 'Punishment' },
-            { key: 'D', text: 'Punishment' },
+            { key: 'A', text: 'WHERE' },
+            { key: 'B', text: 'HAVING' },
+            { key: 'C', text: 'ORDER BY' },
+            { key: 'D', text: 'DISTINCT' },
         ],
         correctKey: 'B',
         rationalization: {
-            whyCorrect: 'Inquiry pedagogy activates Higher-Order Thinking Skills (HOTS) including Analyzing and Evaluating in Bloom’s revised hierarchy.',
-            whyOthersIncorrect: 'Direct instruction focuses largely on lower-level recall and comprehension rather than inductive synthesis.',
-            reference: 'Anderson & Krathwohl Bloom’s Revised Taxonomy Framework',
+            whyCorrect: 'HAVING filters groups created by GROUP BY (e.g. HAVING COUNT(*) > 5).',
+            whyOthersIncorrect: 'WHERE filters individual records before grouping; ORDER BY sorts the output; DISTINCT removes duplicate rows.',
+            reference: 'SQL-99 Standard & Relational DBMS Principles',
         },
     },
     {
         id: 3,
-        category: 'SPECIALIZATION',
-        topicId: 'piaget-development',
+        category: 'OBJECT-ORIENTED PROGRAMMING',
+        topicId: 'oop-basics',
         questionParts: [
-            { text: 'In School of Teacher Education science subjects, ' },
-            { text: 'inquiry-based', highlight: true },
-            { text: ' learning is integrated. Which teaching strategy prioritizes ' },
-            { text: 'student-led', highlight: true },
-            { text: ' question formulation and ' },
-            { text: 'hypothesis testing', highlight: true },
-            { text: ' above direct lecture formats?' },
+            { text: 'In Object-Oriented Programming (OOP), which core principle enables a ' },
+            { text: 'child class', highlight: true },
+            { text: ' to acquire fields and methods from a ' },
+            { text: 'parent class', highlight: true },
+            { text: ' to promote ' },
+            { text: 'code reuse', highlight: true },
+            { text: '?' },
         ],
         options: [
-            { key: 'A', text: 'Punishment' },
-            { key: 'B', text: 'Punishment' },
-            { key: 'C', text: 'Punishment' },
-            { key: 'D', text: 'Punishment' },
+            { key: 'A', text: 'Encapsulation' },
+            { key: 'B', text: 'Polymorphism' },
+            { key: 'C', text: 'Inheritance' },
+            { key: 'D', text: 'Compilation' },
         ],
         correctKey: 'C',
         rationalization: {
-            whyCorrect: 'Formal Operational thought (Piaget) enables hypothetical-deductive reasoning, which serves as the psychological basis for scientific inquiry.',
-            whyOthersIncorrect: 'Rote drills bypass cognitive schema assimilation and accommodation.',
-            reference: 'Piaget Cognitive Development & Constructivist Pedagogy',
+            whyCorrect: 'Inheritance allows a subclass (e.g. Dog) to inherit and extend attributes/methods from a superclass (e.g. Animal).',
+            whyOthersIncorrect: 'Encapsulation bundles data with private access; Polymorphism allows multiple forms of a method; Compilation translates source code to bytecode.',
+            reference: 'Oracle Java Documentation - OOP Concepts',
         },
     },
 ];
@@ -124,7 +122,6 @@ export function DiagnosticQuiz({ onClose, onViewTopicInLibrary }: DiagnosticQuiz
         if (currentIndex < totalQuestions - 1) {
             setCurrentIndex((prev) => prev + 1);
         } else {
-            // Show Diagnostic Completion Screen with Score & Evaluation
             setIsComplete(true);
         }
     };
@@ -141,7 +138,7 @@ export function DiagnosticQuiz({ onClose, onViewTopicInLibrary }: DiagnosticQuiz
         <ClassroomBackground variant="dark-mystic">
             <div className="flex flex-col items-center justify-between w-full h-full min-h-[760px] px-4 py-5 flex-1 max-w-md mx-auto select-none relative">
                 
-                {/* 1. Top Section: Formative Progress Bar (when in question mode) */}
+                {/* 1. Top Section: Formative Progress Bar */}
                 {!isComplete ? (
                     <div className="w-full flex flex-col gap-2 pt-1">
                         <div className="flex items-center justify-between">
@@ -162,7 +159,6 @@ export function DiagnosticQuiz({ onClose, onViewTopicInLibrary }: DiagnosticQuiz
                             </span>
                         </div>
 
-                        {/* Progress Bar Container with Golden Fill */}
                         <div className="w-full h-3 rounded-full bg-[#0d1022] border border-white/20 p-[1.5px] overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.8)]">
                             <div 
                                 className="h-full rounded-full bg-gradient-to-r from-[#eab308] via-[#f59e0b] to-[#facc15] shadow-[0_0_10px_rgba(245,158,11,0.7)] transition-all duration-300 ease-out"
@@ -171,11 +167,10 @@ export function DiagnosticQuiz({ onClose, onViewTopicInLibrary }: DiagnosticQuiz
                         </div>
                     </div>
                 ) : (
-                    /* Top bar for Completion Screen */
                     <div className="w-full flex items-center justify-between border-b border-indigo-500/20 pb-2.5">
                         <div className="flex items-center gap-2">
                             <span className="font-cinzel text-base font-bold text-amber-400 tracking-wider">
-                                ACADEMY DIAGNOSTIC EVALUATION
+                                IT DIAGNOSTIC EVALUATION
                             </span>
                         </div>
                         <span className="text-[10px] font-mono text-purple-300 uppercase px-2 py-0.5 rounded-full bg-purple-950/60 border border-purple-400/40">
@@ -184,17 +179,16 @@ export function DiagnosticQuiz({ onClose, onViewTopicInLibrary }: DiagnosticQuiz
                     </div>
                 )}
 
-                {/* 2. Main Body: Questions vs Detailed Results Screen */}
+                {/* 2. Main Body */}
                 {!isComplete ? (
                     <div className="w-full flex flex-col my-auto py-3">
                         
                         {/* Category Heading & Rationalization Toggle */}
                         <div className="mb-4 flex items-center justify-between">
-                            <h2 className="font-jakarta text-xs sm:text-[13px] font-extrabold tracking-[0.2em] text-zinc-100 uppercase">
+                            <h2 className="font-jakarta text-xs sm:text-[13px] font-extrabold tracking-[0.2em] text-purple-300 uppercase">
                                 {currentQuestion.category}
                             </h2>
 
-                            {/* Rationalization Toggle */}
                             <button
                                 type="button"
                                 onClick={() => setShowRationalization((prev) => !prev)}
@@ -208,7 +202,7 @@ export function DiagnosticQuiz({ onClose, onViewTopicInLibrary }: DiagnosticQuiz
                             </button>
                         </div>
 
-                        {/* Question Description with Highlighted Keywords */}
+                        {/* Question Description */}
                         <div className="mb-6">
                             <p className="font-jakarta text-sm sm:text-[15px] font-normal text-zinc-100 leading-relaxed">
                                 {currentQuestion.questionParts.map((part, idx) => (
@@ -245,7 +239,7 @@ export function DiagnosticQuiz({ onClose, onViewTopicInLibrary }: DiagnosticQuiz
                                             onClick={() => onViewTopicInLibrary(currentQuestion.topicId)}
                                             className="text-amber-300 hover:text-white underline underline-offset-2 font-bold cursor-pointer"
                                         >
-                                            OPEN IN LIBRARY ➔
+                                            OPEN IN CODEX ➔
                                         </button>
                                     )}
                                 </div>
@@ -267,7 +261,6 @@ export function DiagnosticQuiz({ onClose, onViewTopicInLibrary }: DiagnosticQuiz
                                                 : 'border-[#262e49] bg-[#0c1022]/80 text-zinc-100 hover:border-purple-400/60 hover:bg-[#121630]'
                                         }`}
                                     >
-                                        {/* Letter Circle Badge */}
                                         <span className={`w-8 h-8 rounded-full flex items-center justify-center font-jakarta font-bold text-xs sm:text-sm shrink-0 transition-colors ${
                                             isSelected
                                                 ? 'bg-purple-600 text-white shadow-[0_0_8px_rgba(168,85,247,0.7)]'
@@ -276,7 +269,6 @@ export function DiagnosticQuiz({ onClose, onViewTopicInLibrary }: DiagnosticQuiz
                                             {opt.key}
                                         </span>
 
-                                        {/* Option Text */}
                                         <span className="font-jakarta text-sm sm:text-base font-normal tracking-wide">
                                             {opt.text}
                                         </span>
@@ -286,10 +278,9 @@ export function DiagnosticQuiz({ onClose, onViewTopicInLibrary }: DiagnosticQuiz
                         </div>
                     </div>
                 ) : (
-                    /* 3. DIAGNOSTIC COMPLETED SCREEN WITH SCORE & NEXT STEPS */
+                    /* 3. DIAGNOSTIC COMPLETED SCREEN WITH SCORE */
                     <div className="w-full flex-1 flex flex-col items-center justify-between py-3 overflow-y-auto">
                         
-                        {/* Mascot & Celebration Header */}
                         <div className="flex flex-col items-center text-center">
                             <div className="relative mb-2">
                                 <div className="absolute inset-0 bg-purple-500/20 rounded-full blur-2xl -z-10 animate-pulse-glow" />
@@ -308,15 +299,14 @@ export function DiagnosticQuiz({ onClose, onViewTopicInLibrary }: DiagnosticQuiz
                             </h2>
                             <p className="font-jakarta text-xs text-purple-200/90 mt-1 max-w-xs leading-relaxed">
                                 {score >= 2
-                                    ? "Outstanding performance, Future Teacher! Your diagnostic mastery has unlocked the Academy Hub."
-                                    : "Great baseline effort! Your individualized study matrix has been configured."}
+                                    ? "Outstanding performance, Future Software Engineer! Your diagnostic mastery has unlocked the Technical Academy Hub."
+                                    : "Great baseline effort! Your technical review pathway has been configured."}
                             </p>
                         </div>
 
                         {/* Score & Rewards Summary Card */}
                         <div className="w-full rounded-2xl border-2 border-purple-500/40 bg-[#0c0e24]/90 p-3.5 my-2 shadow-[0_0_20px_rgba(124,58,237,0.25)] space-y-3">
                             
-                            {/* Score & XP Row */}
                             <div className="flex items-center justify-between border-b border-white/10 pb-2.5">
                                 <div>
                                     <div className="text-[10px] font-mono uppercase text-purple-300/80 tracking-wider">
@@ -337,29 +327,29 @@ export function DiagnosticQuiz({ onClose, onViewTopicInLibrary }: DiagnosticQuiz
                                 </div>
                             </div>
 
-                            {/* Subject Competency Breakdown */}
+                            {/* Competency Matrix Breakdown */}
                             <div className="space-y-1.5 pt-0.5">
                                 <div className="text-[10px] font-mono uppercase text-zinc-400 tracking-wider">
-                                    COMPETENCY MATRIX BREAKDOWN
+                                    IT COMPETENCY BREAKDOWN
                                 </div>
 
                                 <div className="grid grid-cols-3 gap-1.5 text-center">
                                     <div className="p-2 rounded-xl bg-purple-950/40 border border-purple-400/20">
-                                        <div className="text-[9px] text-zinc-400 uppercase truncate">Gen Ed</div>
+                                        <div className="text-[9px] text-zinc-400 uppercase truncate">Web Dev</div>
                                         <div className="text-xs font-bold text-emerald-300">
                                             {selectedAnswers[1] === 'A' ? '1/1 ✓' : '0/1 ✕'}
                                         </div>
                                     </div>
 
                                     <div className="p-2 rounded-xl bg-purple-950/40 border border-purple-400/20">
-                                        <div className="text-[9px] text-zinc-400 uppercase truncate">Prof Ed</div>
+                                        <div className="text-[9px] text-zinc-400 uppercase truncate">SQL/DBMS</div>
                                         <div className="text-xs font-bold text-emerald-300">
                                             {selectedAnswers[2] === 'B' ? '1/1 ✓' : '0/1 ✕'}
                                         </div>
                                     </div>
 
                                     <div className="p-2 rounded-xl bg-purple-950/40 border border-purple-400/20">
-                                        <div className="text-[9px] text-zinc-400 uppercase truncate">Major</div>
+                                        <div className="text-[9px] text-zinc-400 uppercase truncate">OOP Core</div>
                                         <div className="text-xs font-bold text-emerald-300">
                                             {selectedAnswers[3] === 'C' ? '1/1 ✓' : '0/1 ✕'}
                                         </div>
@@ -371,7 +361,7 @@ export function DiagnosticQuiz({ onClose, onViewTopicInLibrary }: DiagnosticQuiz
                             <div className="p-2.5 rounded-xl bg-amber-950/25 border border-amber-500/30 flex items-center justify-between text-xs">
                                 <div className="flex items-center gap-2 text-zinc-200">
                                     <span>🎯</span>
-                                    <span>Identified Focus: <strong className="text-amber-300">Programming 01</strong></span>
+                                    <span>Identified Focus: <strong className="text-amber-300">Databases & SQL Queries</strong></span>
                                 </div>
                                 <span className="text-[10px] font-mono text-amber-400 font-semibold">Priority 1</span>
                             </div>
@@ -379,7 +369,6 @@ export function DiagnosticQuiz({ onClose, onViewTopicInLibrary }: DiagnosticQuiz
 
                         {/* Actions Section */}
                         <div className="w-full flex flex-col gap-2 pt-1">
-                            {/* Primary Action: Go to Main Landing Hub */}
                             <button
                                 type="button"
                                 onClick={onClose}
@@ -389,7 +378,6 @@ export function DiagnosticQuiz({ onClose, onViewTopicInLibrary }: DiagnosticQuiz
                                 <span>➔</span>
                             </button>
 
-                            {/* Secondary Action: Review Item Rationalizations */}
                             <button
                                 type="button"
                                 onClick={() => setShowFullReviewModal(true)}
@@ -398,7 +386,6 @@ export function DiagnosticQuiz({ onClose, onViewTopicInLibrary }: DiagnosticQuiz
                                 <span>📖 REVIEW ITEM RATIONALIZATIONS</span>
                             </button>
 
-                            {/* Retake Diagnostic */}
                             <button
                                 type="button"
                                 onClick={() => {
@@ -415,7 +402,7 @@ export function DiagnosticQuiz({ onClose, onViewTopicInLibrary }: DiagnosticQuiz
                     </div>
                 )}
 
-                {/* Bottom Action Button: NEXT QUESTION (when in questions mode) */}
+                {/* Bottom Action Button */}
                 {!isComplete && (
                     <div className="w-full pt-3 pb-1">
                         <button
@@ -482,7 +469,7 @@ export function DiagnosticQuiz({ onClose, onViewTopicInLibrary }: DiagnosticQuiz
                                                     }}
                                                     className="w-full text-[10px] font-mono py-1 rounded-lg bg-white/5 hover:bg-white/10 text-amber-300 border border-white/10 transition-all cursor-pointer"
                                                 >
-                                                    Open {q.category} Notes in Codex ➔
+                                                    Open {q.category} in Codex ➔
                                                 </button>
                                             )}
                                         </div>

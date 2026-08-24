@@ -90,29 +90,33 @@ export function FormativeTestScreen({ initialStep = 1, onStartTest, onBack }: Fo
                             </div>
                         )}
 
-                        {/* Step 2: Welcome Speech (Figma Image 4) */}
+                        {/* Step 2: Welcome Speech */}
                         {step === 2 && (
                             <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
                                 <p className="font-jakarta text-sm sm:text-[15px] font-semibold text-purple-100 leading-relaxed drop-shadow-[0_0_6px_rgba(216,180,254,0.3)]">
-                                    Welcome, Future Teacher! Before enrolling into the subject review, you must complete this formative diagnostic test.
+                                    Welcome, Future Software Engineer! Before enrolling into technical review, let's gauge your baseline with this quick IT diagnostic test.
                                 </p>
                             </div>
                         )}
 
-                        {/* Step 3: Focus Areas (Figma Image 5) */}
+                        {/* Step 3: Focus Areas */}
                         {step === 3 && (
                             <div className="animate-in fade-in slide-in-from-bottom-2 duration-300 flex flex-col gap-2">
                                 <p className="font-jakarta text-sm sm:text-[15px] font-bold text-purple-100 tracking-wide">
-                                    Focus Areas:
+                                    Core IT Focus Areas:
                                 </p>
-                                <div className="space-y-1 pl-1">
+                                <div className="space-y-1.5 pl-1">
                                     <div className="flex items-start gap-2 text-xs sm:text-sm font-semibold text-purple-200/90 leading-snug">
                                         <span className="text-amber-400 text-xs">◆</span>
-                                        <span>General Education (Math, Language)</span>
+                                        <span>Web Technologies (HTML, CSS, JS)</span>
                                     </div>
                                     <div className="flex items-start gap-2 text-xs sm:text-sm font-semibold text-purple-200/90 leading-snug">
                                         <span className="text-amber-400 text-xs">◆</span>
-                                        <span>Professional Education Principles</span>
+                                        <span>Database Management & SQL Queries</span>
+                                    </div>
+                                    <div className="flex items-start gap-2 text-xs sm:text-sm font-semibold text-purple-200/90 leading-snug">
+                                        <span className="text-amber-400 text-xs">◆</span>
+                                        <span>Object-Oriented Programming (OOP)</span>
                                     </div>
                                 </div>
                             </div>

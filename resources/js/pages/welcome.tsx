@@ -1,10 +1,12 @@
-import { Head, Link, usePage } from '@inertiajs/react';
+import { Head, usePage } from '@inertiajs/react';
 import React, { useCallback, useState } from 'react';
 import { BattleMode } from '@/components/talon/BattleMode';
 import { DashboardLanding } from '@/components/talon/DashboardLanding';
 import { DiagnosticQuiz } from '@/components/talon/DiagnosticQuiz';
 import { FlashcardDeck } from '@/components/talon/FlashcardDeck';
 import { FormativeTestScreen } from '@/components/talon/FormativeTestScreen';
+import { MultiRolePortal, UserRole } from '@/components/talon/MultiRolePortal';
+import { PracticeDrill } from '@/components/talon/PracticeDrill';
 import { PrototypeControls, ScreenId } from '@/components/talon/PrototypeControls';
 import { SplashScreen } from '@/components/talon/SplashScreen';
 import { TopicLibrary } from '@/components/talon/TopicLibrary';
@@ -65,6 +67,7 @@ function playMagicSfx(type: 'click' | 'advance' | 'chime' | 'success') {
 export default function Welcome() {
     const { auth } = usePage().props;
     const [currentScreen, setCurrentScreen] = useState<ScreenId>('splash');
+    const [userRole, setUserRole] = useState<UserRole>('student');
     const [selectedTopicId, setSelectedTopicId] = useState<string | null>(null);
     const [isMobileFrame, setIsMobileFrame] = useState(true);
     const [soundEnabled, setSoundEnabled] = useState(true);
@@ -225,6 +228,14 @@ export default function Welcome() {
                                         setSelectedTopicId(null);
                                         setCurrentScreen('library');
                                     }}
+                                    onOpenFlashcards={() => {
+                                        triggerSfx('click');
+                                        setCurrentScreen('flashcards');
+                                    }}
+                                    onOpenPortal={() => {
+                                        triggerSfx('click');
+                                        setCurrentScreen('portal');
+                                    }}
                                 />
                             )}
 
@@ -235,13 +246,28 @@ export default function Welcome() {
                                         triggerSfx('click');
                                         setCurrentScreen('landing');
                                     }}
-                                    onStartTopicDrill={() => {
+                                    onStartTopicDrill={(topicId) => {
                                         triggerSfx('advance');
-                                        setCurrentScreen('quiz');
+                                        setSelectedTopicId(topicId);
+                                        setCurrentScreen('drill');
                                     }}
                                     onOpenFlashcards={() => {
                                         triggerSfx('click');
                                         setCurrentScreen('flashcards');
+                                    }}
+                                />
+                            )}
+
+                            {currentScreen === 'drill' && (
+                                <PracticeDrill
+                                    topicId={selectedTopicId}
+                                    onBack={() => {
+                                        triggerSfx('click');
+                                        setCurrentScreen('library');
+                                    }}
+                                    onComplete={() => {
+                                        triggerSfx('success');
+                                        setCurrentScreen('landing');
                                     }}
                                 />
                             )}
@@ -271,6 +297,24 @@ export default function Welcome() {
                                     }}
                                     onDefeat={() => {
                                         triggerSfx('click');
+                                        setCurrentScreen('landing');
+                                    }}
+                                />
+                            )}
+
+                            {currentScreen === 'portal' && (
+                                <MultiRolePortal
+                                    currentRole={userRole}
+                                    onSelectRole={(role) => {
+                                        triggerSfx('click');
+                                        setUserRole(role);
+                                    }}
+                                    onBack={() => {
+                                        triggerSfx('click');
+                                        setCurrentScreen('landing');
+                                    }}
+                                    onLaunchStudentHub={() => {
+                                        triggerSfx('advance');
                                         setCurrentScreen('landing');
                                     }}
                                 />

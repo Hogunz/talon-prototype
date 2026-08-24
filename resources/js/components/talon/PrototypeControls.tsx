@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type ScreenId = 'splash' | 'welcome' | 'formative-1' | 'formative-2' | 'formative-3' | 'quiz' | 'landing' | 'library' | 'flashcards' | 'battle';
+export type ScreenId = 'splash' | 'welcome' | 'formative-1' | 'formative-2' | 'formative-3' | 'quiz' | 'landing' | 'library' | 'flashcards' | 'battle' | 'portal' | 'drill';
 
 interface PrototypeControlsProps {
     currentScreen: ScreenId;
@@ -30,6 +30,7 @@ export function PrototypeControls({
         { id: 'library', label: 'STE Topic Library', figmaIndex: 'Step 1' },
         { id: 'flashcards', label: 'Flashcard Deck', figmaIndex: 'Step 2' },
         { id: 'battle', label: 'Battle Mode ⚔️', figmaIndex: 'Step 3' },
+        { id: 'portal', label: 'Teacher / Dean Portal', figmaIndex: 'Step 4' },
     ];
 
     return (
